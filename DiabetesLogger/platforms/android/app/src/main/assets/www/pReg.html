@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diabetes Scheduler</title>
+	<!--BOOTSTRAP CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!--LOCAL CSS -->
+	<link rel="stylesheet" type="text/css" href="css/assets/style.css">
+	<!--FAVICON -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<!--VIEWPORT -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--JQUERY -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<!--JQUERY UI -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	crossorigin="anonymous"></script>
+	<!--BOOTSTRAP -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<!--- FIREBASE -->
+	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+	<!--MOMENT -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<!--LOCAL JS -->
+	<script src="css/assets/app4.js"></script>
+	<!--EFFECTS JS -->
+	<script src="css/assets/effects.js"></script>
+
+<!-- For-Mobile-Apps-and-Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps-and-Meta-Tags -->
+<!-- Custom Theme files -->
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/style11.css" /><!-- menu style sheet -->
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all"> 
+<!-- //Custom Theme files -->
+
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
+<!-- //font-awesome icons -->
+
+<!-- web-fonts -->  
+<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/javascript">
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type="text/javascript"'>
+<!-- //web-fonts -->
+</head>
+<body class="bg">
+	<div class="overlay overlay-simplegenie">
+			<button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+			<nav>
+				<ul>
+					<li><a href="main.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="doctors.html">Doctors</a></li>
+					<li><a href="New appoint.html">Appointment</a></li>
+					<li><a href="services.html">Services</a></li>
+					<li><a href="single.html">News</a></li>
+					<li><a href="locations.html">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+		<section class="header-w3ls"> 
+			<button id="trigger-overlay" type="button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+			<div class="bottons-agileits-w3layouts">
+		
+		<button onclick="signOutBtn()" type="button" class="btn btn-primary"><i class="fa fa-sign-out"></i>Logout</button>
+			</div>
+			<div class="bottons-agileits-w3layouts">
+			</div>
+		<h1><a href="main.html">Diabetes Care</a></h1>
+		<div class="clearfix"> </div>
+		</section>
+<!-- //menu -->
+
+<div class="container">
+  <div class="row">
+	<div class="col col-12">
+
+		<!--- jumbotron -->
+
+			<div class="jumbotron">
+			<h2>Diabetes Patients Register <span class="glyphicon glyphicon-stats" aria-hidden="true"></span></h2>
+			<p id="theTime"></p>
+			</div>
+
+		</div>
+	</div>
+
+		<!--- jumbotron END -->
+
+		<!--- panel -->
+	<div class="row logTable">
+		<div class="col col-12">
+
+			<div class="panel panel-info">
+				<div class="panel-heading"><b>Current registered patients</b></div>
+
+				<table class="table table-responsive">
+					<thead>
+					   <tr>
+						    <th>Full Name</th>
+							<th>Address</th>
+							<th>Post Code</th>
+							<th>Email</th>						
+						    <th>Date</th>
+							<th>Time of Register</th>							
+						    <th>Telephone Number</th>
+						    <!-- <th>Remove</th> -->
+						    <th>Update</th>
+		  				</tr>
+		  			</thead>
+	  				<tbody>
+	  				</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+
+		<!--- panel END -->
+
+		<!--- form -->
+
+	<div class="row addFormRow">
+		<div class="col col-12">
+
+			<div class="panel panel-success">
+				<div class="panel-heading"><b>Patients Register</b></div>
+
+				<form role="form">
+					<div class="form-group">
+						<div class="form-group">
+							<label for="Full Name">Full Name</label>
+							<input type="text" class="form-control" id="FullName">
+						</div>
+						
+						<div class="form-group">
+							<label for="Address">Address</label>
+							<input type="text" class="form-control" id="Address">
+						</div>
+						
+						<div class="form-group" id="set">
+							<label for="code">Post Code</label>
+							<input type="text" class="form-control" id="Pcode">
+						</div>
+						
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" id="email">
+						</div>
+						
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" class="form-control" id="password">
+						</div>
+
+						<div class="form-group">
+							<label for="Date">Date</label>
+							<input type="date" class="form-control" id="Date">
+						</div>
+						
+						<div class="form-group">
+							<label for="Time">Time of Register</label>
+							<input type="time" class="form-control" id="time">
+						</div>
+
+						<div class="form-group">
+							<label for="Telephone">Telephone</label>
+							<input type="tel" class="form-control" maxlength="11" id="Telephone">
+						</div>
+						</div>
+
+						<button type="submit" id="submitBt" class="btn btn-success submit">Submit</button>
+						<div class="alert alert-danger addFormAlert" role="alert">Please Fill Out Form Completely</div>
+						
+				</form>
+			</div>
+
+		</div>
+	</div>
+	<!--- form END -->
+
+		<div class="row updateFormRow">
+		<div class="col col-12">
+
+			<div class="panel panel-warning">
+				<div class="panel-heading updateFormHeading"><b>Update Log</b></div>
+
+				<form role="form">
+					<div class="form-group">
+						<div class="form-group">
+							<label for="Full Name">New Full Name</label>
+							<input type="text" class="form-control" id="updateFullName">
+						</div>
+						
+						<div class="form-group">
+							<label for="Address">New Address</label>
+							<input type="text" class="form-control" id="updateAddress">
+						</div>
+						
+						<div class="form-group" id="set">
+							<label for="code"> New Post Code</label>
+							<input type="text" class="form-control" id="updatePcode">
+						</div>
+						
+						<!-- <div class="form-group"> -->
+							<!-- <label for="email">Email</label> -->
+							<!-- <input type="email" class="form-control" id="updateemail"> -->
+						<!-- </div> -->
+						
+						<!-- <div class="form-group"> -->
+							<!-- <label for="password">Password</label> -->
+							<!-- <input type="password" class="form-control" id="updatepassword"> -->
+						<!-- </div> -->
+
+						<!-- <div class="form-group"> -->
+							<!-- <label for="Date">Date</label> -->
+							<!-- <input type="date" class="form-control" id="updateDate"> -->
+						<!-- </div> -->
+						
+						<!-- <div class="form-group"> -->
+							<!-- <label for="Time">Time of Register</label> -->
+							<!-- <input type="time" class="form-control" id="updatetime"> -->
+						<!-- </div> -->
+
+						<div class="form-group">
+							<label for="Telephone">Telephone</label>
+							<input type="tel" class="form-control" maxlength="11" id="updateTelephone">
+						</div>
+						</div>
+						
+						
+						</div>
+
+						<button type="submit" class="btn btn-success updateLog">Update Log</button>
+						<button type="submit" class="btn btn-danger cancelUpdate">Cancel</button>
+						<div class="alert alert-danger updateFormAlert" role="alert">Please Fill Out Form Completely</div>
+						
+				</form>
+			</div>
+
+		</div>
+	</div>
+	<!--- update form END -->
+</div>
+	
+
+<!--//Services-->
+<!--social-icons-->
+<!--//social-icons-->
+<!-- footer -->
+<div class="footer">
+		<div class="agileinfo_footer_bottom">
+			<div class="container">
+				<div class="col-md-3 agileinfo_footer_bottom_grid">
+					<h2>About <span>Us</span></h2>
+					<p>We are Diabetes UK. Our vision is a world where diabetes can do no harm. Diabetes affects more people than any other serious health condition in the UK. More than dementia and cancer combined. That means we need to take action now.
+
+							Because we’re the leading the UK for people affected by diabetes it’s our responsibility to lead the fight against the growing crisis. And this fight is one that involves all of us – sharing knowledge and taking diabetes on together.</p>
+				</div>
+				
+				<div class="col-md-3 agileinfo_footer_bottom_grid">
+						<img src="images/cross.jpg" alt="Mountain View" width="700" height="377">
+					
+				</div>
+				<div class="col-md-3 agileinfo_footer_bottom_grid">
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="agileinfo_footer_bottom1">
+			<div class="container">
+					<p>© 2017 Clinical Care. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+
+<!-- js -->
+<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
+<!-- //js -->
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+
+<!--responsiveslides js-->
+<script src="js/responsiveslides.min.js"></script>
+			<script>
+						// You can also use "$(window).load(function() {"
+						$(window).load(function() {
+						  // Slideshow 4
+						  $("#slider4").responsiveSlides({
+							auto: true,
+							pager:true,
+							nav:false,
+							speed: 500,
+							namespace: "callbacks",
+							before: function () {
+							  $('.events').append("<li>before event fired.</li>");
+							},
+							after: function () {
+							  $('.events').append("<li>after event fired.</li>");
+							}
+						  });
+					
+						});
+			</script>
+			<script>
+							// You can also use "$(window).load(function() {"
+							$(function () {
+							  // Slideshow 3
+							  $("#slider3").responsiveSlides({
+								auto: true,
+								pager:false,
+								nav: true,
+								speed: 500,
+								namespace: "callbacks",
+								before: function () {
+								  $('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+								  $('.events').append("<li>after event fired.</li>");
+								}
+							  });
+						
+							});
+						  </script>
+
+<!--//responsiveslides js-->
+<script src="js/SmoothScroll.min.js"></script>
+<!--menu script-->
+<script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/demo1.js"></script>
+<!--//menu script-->
+
+<!-- banner -->
+<script type='text/javascript' src='js/jquery.easing.1.3.js'></script> 
+<!-- //banner -->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!--js for bootstrap working-->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

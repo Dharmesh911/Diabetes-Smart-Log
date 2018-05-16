@@ -1,0 +1,42 @@
+form {
+	margin: 8px;
+}
+
+.addFormAlert {
+	margin-top: 5px;
+	display: none;
+}
+
+.updateFormAlert {
+	margin-top: 5px;
+	display: none;
+}
+
+#theTime {
+	font-weight: bolder;
+}
+
+.arrivingAlert {
+	color: red;
+	font-weight: bolder;
+}
+
+.glyphicon-remove {
+	color: black;
+}
+
+.glyphicon-remove:hover {
+	cursor: pointer;
+}
+
+.glyphicon-remove:active {
+	color: black !important;
+}
+
+.updateFormRow {
+	display: none;
+}
+
+.panel {
+	overflow: auto;
+}

@@ -1,0 +1,253 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Diabetes News</title> 
+<!-- For-Mobile-Apps-and-Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Clinical Care Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, SmartPhone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps-and-Meta-Tags -->
+<!-- Custom Theme files -->
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" type="text/css" href="css/style11.css" /><!-- menu style sheet -->
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all"> 
+<!-- //Custom Theme files -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
+<!-- //font-awesome icons -->
+
+<!-- web-fonts -->  
+<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- //web-fonts -->
+</head>
+<body class="bg">
+	<div class="overlay overlay-simplegenie">
+			<button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+			<nav>
+				<ul>
+					<li><a href="main.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="doctors.html">Doctors</a></li>
+					<li><a href="New appoint.html">Appointment</a></li>
+					<li><a href="services.html">Services</a></li>
+					<li><a href="single.html">News</a></li>
+					<li><a href="locations.html">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+		<section class="header-w3ls"> 
+			<button id="trigger-overlay" type="button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+			<div class="bottons-agileits-w3layouts">
+			<a class="page-scroll" href="#myModal2" data-toggle="modal"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>.
+			<a class="page-scroll" href="#myModal3" data-toggle="modal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Register</a>
+			</div>
+		<h1><a href="main.html">Diabetes Care</a></h1>
+		<div class="clearfix"> </div>
+		</section>
+<!-- //menu -->
+
+<!-- banner -->
+<div class="inner-banner-agileits-w3layouts">
+</div>
+<!-- //banner -->
+<!-- breadcrumbs -->
+<div class="w3l_agileits_breadcrumbs">
+   <div class="container">
+		<div class="w3l_agileits_breadcrumbs_inner">
+			<ul>
+				<li><a href="main.html">Home</a><span>«</span></li>
+									
+				<li>Diabetes News</li>
+				</ul>
+		</div>
+	</div>
+</div>		
+<!-- //breadcrumbs -->
+<!-- blog -->
+	<div class="blog">
+			<!-- container -->
+			<div class="container">
+			
+				<div class="col-md-4 blog-top-right-grid">
+					<div class="Categories stand-w3ls">
+						<h3>Recent News</h3>
+						<ul>
+							<!-- start feedwind code --> <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="78399/"></script> <!-- end feedwind code -->
+						</ul>
+					</div>
+				
+				</div>
+				
+						
+	<!-- //blog -->
+	<div>
+		<section data-header-dark="true">
+                
+		<!--	<img class="loader-img" src="assets/loader2.gif" /> loader gif used before the item loads-->
+				<div id="divRss"> <!--div div is populated with all the feed results-->
+				
+					<script>
+						$('#divRss').FeedEk({
+							FeedUrl:'https://www.diabetes.co.uk/news', //feed url to pull the content out from. 
+							MaxCount : 30, //how many posts you'd like to display
+							ShowDesc : true, //show in order
+							ShowPubDate:true, //show publish date
+							DescCharacterLimit:250, //description character limit. incease it if you want to view more description.
+							TitleLinkTarget:'_blank', //open target link in a new window
+						});
+
+
+						
+(function ($) {
+    $.fn.FeedEk = function (opt) {
+        var def = $.extend({
+            MaxCount: 5,
+            ShowDesc: true,
+            ShowPubDate: true,
+            DescCharacterLimit: 0,
+            TitleLinkTarget: "_blank",
+            DateFormat: "",
+            DateFormatLang:"en"
+        }, opt); //the stated default value if not declared in index.html page
+        
+        var id = $(this).attr("id"), i, s = "", dt; //variables 
+        $("#" + id).empty(); //this clears everything in the divRss page
+        if (def.FeedUrl == undefined) return false; //return nothing if url is false and stop working
+        
+        var YQLstr = 'SELECT channel.item FROM feednormalizer WHERE output="rss_2.0" AND url ="' + def.FeedUrl + '" LIMIT ' + def.MaxCount; //this creates a datebase statement to pull out the data from the url provided
+        
+        //below we call a ajax function
+        //we use the ajax url by implementing yahoo api and encoding the database statement declared on top
+        //we receive the data in json format
+        //after that we use the json object data and pull out the necessory data from it
+        $.ajax({
+            url: "https://query.yahooapis.com/v1/public/yql?q=" + encodeURIComponent(YQLstr) + "&format=json&diagnostics=false&callback=?",
+            dataType: "json",
+            success: function (data) {
+                $('.loader-img').hide();
+                $("#" + id).empty();
+                if (!(data.query.results.rss instanceof Array)) {
+                    data.query.results.rss = [data.query.results.rss];
+                }
+                $.each(data.query.results.rss, function (e, itm) {
+                    
+                    s += '<div class="each-item-list"><h2 class="post-title"><a href="' + itm.channel.item.link + '" target="' + def.TitleLinkTarget + '" >' + itm.channel.item.title + '</a></h2>';
+                    
+                    if (def.ShowPubDate){
+                        dt = new Date(itm.channel.item.pubDate);
+                        s += '<div class="itemDate">';
+                        if ($.trim(def.DateFormat).length > 0) {
+                            try {
+                                moment.lang(def.DateFormatLang);
+                                s += moment(dt).format(def.DateFormat);
+                            }
+                            catch (e){s += dt.toLocaleDateString();}                            
+                        }
+                        else {
+                            s += dt.toLocaleDateString();
+                        }
+                        s += '</div>';
+                    }
+                    if (def.ShowDesc) {
+                        s += '<div class="post-description">';
+                         if (def.DescCharacterLimit > 0 && itm.channel.item.description.length > def.DescCharacterLimit) {
+                            s += itm.channel.item.description.substring(0, def.DescCharacterLimit) + '...';
+                        }
+                        else {
+                            s += itm.channel.item.description;
+                         }
+                         s += '</div>';
+                    }
+                    
+                    s += '<hr class="hr-seperater">'; //seperator for each event (research on api based on server)
+                });
+                $("#" + id).append('<div class="xmlInfo"><h2 class="upper_title">Recent Feeds</h2>' + s + '</div>');
+            }
+        });
+    };
+})(jQuery);
+					</script>
+				</div>
+	
+		</section>
+	</div>
+
+
+<br>
+
+<!--social-icons-->
+<div class="social-agileinfo">
+	
+		<div class="feedgrabbr_widget" id="fgid_35b471bd1f6e336028f96dd0e"></div>
+		<script>if (typeof (fg_widgets) === "undefined") fg_widgets = new Array(); fg_widgets.push("fgid_35b471bd1f6e336028f96dd0e");</script>
+		<script async src="https://www.feedgrabbr.com/widget/fgwidget.js"></script>
+	<div class="clearfix"></div>
+</div>
+<!--//social-icons-->
+<!-- footer -->
+	<div class="footer">
+		<div class="agileinfo_footer_bottom">
+			<div class="container">
+				<div class="col-md-3 agileinfo_footer_bottom_grid">
+					<h2>About <span>Us</span></h2>
+					<p>We are Diabetes UK. Our vision is a world where diabetes can do no harm. Diabetes affects more people than any other serious health condition in the UK. More than dementia and cancer combined. That means we need to take action now.
+
+							Because we’re the leading the UK for people affected by diabetes it’s our responsibility to lead the fight against the growing crisis. And this fight is one that involves all of us – sharing knowledge and taking diabetes on together.</p>
+				</div>
+				
+				<div class="col-md-3 agileinfo_footer_bottom_grid">
+						<img src="images/cross.jpg" alt="Mountain View" width="700" height="377">
+					
+				</div>
+				<div class="col-md-3 agileinfo_footer_bottom_grid">
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="agileinfo_footer_bottom1">
+			<div class="container">
+					<p>© 2017 Clinical Care. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+
+<!-- js -->
+<script type='text/javascript' src='js/jquery-2.2.3.min.js'></script>
+<!-- //js -->
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+
+<!--jarallax -->
+	<script src="js/SmoothScroll.min.js"></script>
+<!-- //jarallax -->
+<!--menu script-->
+<script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/demo1.js"></script>
+<!--//menu script-->
+<!-- banner -->
+<script type='text/javascript' src='js/jquery.easing.1.3.js'></script> 
+<!-- //banner -->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!--js for bootstrap working-->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

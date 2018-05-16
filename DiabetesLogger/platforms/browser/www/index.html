@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/> <!-- auto fits mobile device size -->
+  <title>Diabetes Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"> <!-- googleapis style sheet from online -->
+  <link rel="stylesheet" href="css/style4.css" /> <!--  custom menu style sheet for the page -->
+</head>
+<body>  
+
+  <div id="login_div" class="main-div"> <!--  container unit for login form-->
+    <h3>Welcome to Diabetes log</h3> <!-- Heading for this container unit-->
+    <input type="email" placeholder="Email..." id="email_field" /> <!-- input box for email -->
+    <input type="password" placeholder="Password..." id="password_field" /> <!-- input box for password-->
+
+    <button onclick="login()">Login to Account</button> <!-- button with onclick function for login -->
+    <br>
+    <button onclick="nextPage()" id="nxtP">Reception Login</button> <!-- button with onclick function for next page -->
+    <br>
+	  <button onclick="nextPage2()" id="nxtA">Admin Login </button> <!-- button with onclick function for next page -->
+	  <br> <!-- for separating two layers -->
+	  <button onclick="sendPasswordReset()"> Forgot Password?</button> <!-- button with onclick function for resetting password-->
+	
+	
+  </div>
+
+  <div id="user_div" class="loggedin-div"> 
+    <h3>Welcome User</h3>
+    <p id="user_para"> You're currently logged in.</p>
+    <button onclick="logout()">Logout</button>
+	<br>
+	
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> <!-- script for loading the database-->
+  <script>
+    // Initialize Firebase with unique credential 
+    var config = {
+	apiKey: "AIzaSyBHP48kjdW-YzKCdZA_-TcVnni-NlCZZ8Q",
+    authDomain: "diabetesapp-ee8fa.firebaseapp.com",
+    databaseURL: "https://diabetesapp-ee8fa.firebaseio.com",
+    projectId: "diabetesapp-ee8fa",
+    storageBucket: "diabetesapp-ee8fa.appspot.com",
+    messagingSenderId: "769133104242"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="js/index.js"></script><!-- loading function from javaScript file/ with location of the file-->
+
+</body>
+</html>
